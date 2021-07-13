@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+    app:
+        image: api-sismos
+        ports:
+            - 4000:4000
+        environment:
+            DB_HOST: postgres
+            DB_USER: grupox
+            DB_PASSWORD: grupox1234
+
+    postgres:
+        image: postgres
+        volumes:
+            - ./postgres-data:/var/lib/postgresql/data
+            - ./sql/db.sql:/docker-entrypoint-initdb.d/db.sql
+        environment:
+            POSTGRES_USER: grupox
+            POSTGRES_PASSWORD: grupox1234
+            POSTGRES_DB: sismos
