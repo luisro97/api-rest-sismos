@@ -86,7 +86,3 @@ http://localhost:4000/grupo-x/api-docs
 * [Jsonwebtoken](https://jwt.io/) - Modulo de autenticacion
 * [Swagger JSDoc](https://www.npmjs.com/package/swagger-jsdoc) - Modulo para generar documentacion Swagger
 
-### Construido por
-* **Ariel Painenao Pincheira** - [barsinsor](https://github.com/barsinsor)
-* **Luis Salinas Poblete** - [LuisSP97](https://github.com/LuisSP97)
-* **Cristobal Sanchez Orellana** - [CristobalSanchezOrellana](https://github.com/CristobalSanchezOrellana)
