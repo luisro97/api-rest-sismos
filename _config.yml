@@ -1,3 +1,3 @@
 theme: jekyll-theme-cayman
-title: [The title of your site]
-description: [A short description of your site's purpose]
+title: [API REST Sismos]
+description: [API REST que realiza web scraping a una pagina de sismologia en Chile y guarda los datos en una base de datos postgres]
