@@ -1,18 +1,18 @@
 import express, {json} from 'express';
 import morgan from 'morgan';
-import sismosRoutes from './routes/sismos.routes';
-import usersRoutes from './routes/users.routes';
-import authRoutes from './routes/auth.routes';
-import request from 'request-promise';
 import cheerio from 'cheerio';
-import Sismo from './models/sismos';
+import request from 'request-promise';
 import requestPromise from 'request-promise';
-import config from './config';
 import jwt from 'jsonwebtoken';
+import swaggerUI from 'swagger-ui-express';
+import swaggerJsDoc from 'swagger-jsdoc';
+import config from './config.js';
+import Sismo from './models/sismos.js';
+import sismosRoutes from './routes/sismos.routes.js';
+import usersRoutes from './routes/users.routes.js';
+import authRoutes from './routes/auth.routes.js';
 
 const app = express();
-const swaggerJsDoc = require("swagger-jsdoc");
-const swaggerUI = require("swagger-ui-express");
 
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {                                            //configuracion del Swagger 
@@ -44,7 +44,6 @@ const swaggerOptions = {                                            //configurac
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/grupo-x/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));            //ruta de acceso al swagger
 
-
 app.use(morgan('dev'));                                     //definicion para el uso de morgan
 app.use(json());
 app.use((req, res, next) => {
@@ -58,20 +57,20 @@ app.use((req, res, next) => {
 //funcion asincrona que se utliza para hacer el scraping a la pagina
 export async function scrapSismos() {
     try {
-        const result = await request.get("http://www.sismologia.cl/links/ultimos_sismos.html");         //cosntante que espera los datos resultantes de la pagina http://www.sismologia.cl/links/ultimos_sismos.html
+        const result = await request.get("http://www.sismologia.cl/ultimos_sismos.html");         //cosntante que espera los datos resultantes de la pagina http://www.sismologia.cl/links/ultimos_sismos.html
         const $ = cheerio.load(result);
         const data = [];
-        $('table tbody tr').each((index, elem) => {                             //tabla que contiene los datos de los sismos para luego ingresarlos en variables
-            if (index === 0) return true;                                       //constantes que tienen cada dato corresponiente a un sismo
+
+        $("body > div > div > table > tbody > tr").each((index, elem) => {                             //tabla que contiene los datos de los sismos para luego ingresarlos en variables
+            if(index == 0) return true
             const tds = $(elem).find("td");
             const fecha_local = $(tds[0]).text();
             const fecha_utc = $(tds[1]).text();
             const latitud = $(tds[2]).text();
             const longitud = $(tds[3]).text();
             const profundidad = $(tds[4]).text();
-            const magnitud = $(td[5]).text();
-            const agencia = $(tds[6]).text();
-            const ref_geografica = $(tds[7]).text();
+            const magnitud = $(tds[5]).text();
+            const ref_geografica = $(tds[6]).text();
             const table_row = {
                 fecha_local,
                 fecha_utc,
@@ -79,11 +78,11 @@ export async function scrapSismos() {
                 longitud,
                 profundidad,
                 magnitud,
-                agencia,
                 ref_geografica
             };
             data.push(table_row);
         });
+        console.log(data)
         return data;
     } catch (error) {
         console.log("Ha ocurrido un error, informacion a continuacion: ", error);       //informacion en caso de exista un error al realizar la funcion asincrona

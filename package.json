@@ -3,18 +3,20 @@
     "version": "1.0.0",
     "description": "API RESTful que realiza web-scraping a una pagina de sismos para luego insertar los datos en una base de datos postgresql y disponer de ellos",
     "main": "src/index.js",
+    "type": "module",
     "scripts": {
-        "dev": "nodemon src/index.js --exec babel-node",
+        "dev": "nodemon npx src/index.js",
         "build": "babel src --out-dir dist",
         "modules": "npm i cheerio request request-promise express pg pg-hstore sequelize morgan @babel/polyfill jsonwebtoken",
         "dev_modules": "npm i --save-dev @babel/core @babel/cli @babel/preset-env nodemon @babel/node",
-        "start": "nodemon src/index.js --exec babel-node"
+        "start": "node src/index.js"
     },
     "keywords": [],
     "author": "Luis Salinas, Ariel Painenao, Cristobal Sanchez",
     "license": "ISC",
     "dependencies": {
         "@babel/polyfill": "^7.12.1",
+        "babel-node": "^0.0.1-security",
         "bcryptjs": "^2.4.3",
         "cheerio": "^1.0.0-rc.10",
         "cors": "^2.8.5",

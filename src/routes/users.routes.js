@@ -1,7 +1,8 @@
-const { Router } = require('express');
+import {Router} from 'express';
+import verifyToken from '../libs/verifyToken.js';
+import { createUser, getUsers, getProfile } from '../controllers/users.controller.js';
+
 const router = Router();
-const verifyToken = require('../libs/verifyToken')
-import { createUser, getUsers, getProfile } from '../controllers/users.controller';
 
 //definicion del esquema user que contiene los datos de un usuario en swagger
 
@@ -94,4 +95,4 @@ router.get('/', verifyToken, getUsers);         //ruta del metodo get para obten
  */
 router.get('/profile', verifyToken, getProfile);        //ruta del metodo get para obtener los datos de un usuario, con la verificacion del token y atraves de la funcion getProfile
 
-module.exports = router;
+export default router;

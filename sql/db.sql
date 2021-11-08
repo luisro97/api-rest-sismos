@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS public.users
 CREATE TABLE IF NOT EXISTS public.reg_sismos
 (
     id_registro numeric NOT NULL,
-    fecha_local timestamp with time zone NOT NULL,
+    fecha_local timestamp without time zone NOT NULL,
     latitud double precision,
     longitud double precision,
     profundidad integer,

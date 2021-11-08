@@ -1,5 +1,5 @@
-import Sequelize, { DataTypes } from 'sequelize';
-import { sequelize } from '../database/database';
+import Sequelize from 'sequelize';
+import { sequelize } from '../database/database.js';
 
 //modelacion de Users a traves de sequelize
 const Users = sequelize.define("users", {

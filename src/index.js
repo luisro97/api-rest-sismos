@@ -1,10 +1,11 @@
-import app, { createPosts, scrapSismos } from "./app";
-import config from "./config";
+import app, { createPosts, scrapSismos } from "./app.js";
+import config from "./config.js";
 import '@babel/polyfill'
 
 async function main() {
     try {
         let first = await scrapSismos();
+        console.log(first);
         createPosts(first);
         setInterval(async() => {                                //funcion asincrona para definir el tiempo del scraping y registrarlos en la base de datos
             let aux = await scrapSismos();

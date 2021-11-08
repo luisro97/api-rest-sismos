@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import config from '../config';
+import config from '../config.js';
 
 //Funcion que verifica el token recibido por la funcion createSismos
 function verifyTokenSismo(req, res, next) {
@@ -32,4 +32,4 @@ function verifyTokenSismo(req, res, next) {
     }
 }
 
-module.exports = verifyTokenSismo;
+export default verifyTokenSismo;

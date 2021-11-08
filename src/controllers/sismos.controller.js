@@ -1,6 +1,6 @@
-import { toLocalTz } from '../app';
-import Sismo from '../models/sismos';
-import config from '../config';
+import { toLocalTz } from '../app.js';
+import Sismo from '../models/sismos.js';
+import config from '../config.js';
 
 
 //funcion asincrona para la obtencion de todos los sismos registrados 
@@ -18,10 +18,10 @@ export async function getSismos(req, res) {
                 date: fechaHora,
                 message: 'No se han encontrado registros'           //mensaje de salida en caso de no existir registros
             })
-        } else {
-            const regsTz = toLocalTz(regs);                     // obtendcionde de registros con la hora local
+        } else {                   // obtendcionde de registros con la hora local
+            const regsTz = toLocalTz(regs)
             res.status(200).json({
-                data: regsTz                                //salida del json con los datos de todos los sismos registrados en caso de que la peticion haya sido correcta
+                data: regsTz                               //salida del json con los datos de todos los sismos registrados en caso de que la peticion haya sido correcta
             });
         }
     } catch (error) {

@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import { sequelize } from '../database/database';
+import { sequelize } from '../database/database.js';
 
 //modelacion de sismo a traves de sequelize
 const Sismo = sequelize.define("reg_sismo", {

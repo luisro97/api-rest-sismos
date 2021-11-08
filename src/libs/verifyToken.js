@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import config from '../config';
+import config from '../config.js';
 
 //Funcion que verifica el token recibido
 function verifyToken(req, res, next) {
@@ -32,4 +32,4 @@ function verifyToken(req, res, next) {
     }
 }
 
-module.exports = verifyToken;
+export default verifyToken;

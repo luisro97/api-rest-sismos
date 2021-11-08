@@ -1,7 +1,8 @@
-const { Router } = require('express');
+import { Router } from 'express';
+import { signIn } from '../controllers/auth.controller.js';
+
 const router = Router();
 
-import { signIn } from '../controllers/auth.controller';
 //definicion del esquema auth para la realizacion del metodo post en swagger
 /**
  * @swagger
@@ -45,4 +46,4 @@ import { signIn } from '../controllers/auth.controller';
  */
 router.post('/signin', signIn);             //ruta del metodo post para el inicio de sesion
 
-module.exports = router;
+export default router;

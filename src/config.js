@@ -1,11 +1,11 @@
-module.exports = {
+let config = {
     //SECRET KEY GENERAL
     secret: process.env.AUTH_SECRET || 'sXzUT!PCm2Yzj3gtCXGTfCHx!t8zsJ',
     //VARIABLES AUTH
     auth_expires: process.env.AUTH_EXPIRES || '24h',
     auth_rounds: process.env.AUTH_ROUNDS || 10,
     //VARIABLES EXEC
-    exec_interval: process.env.EXEC_INTERVAL || 10000,
+    exec_interval: process.env.EXEC_INTERVAL || 3600000,
     //VARIABLES SISMOS
     sismos_usr: process.env.SISMOS_USR || 'tp!zN%rHMU3eeV&y8t!9vCJ?7SJDqn',
     sismos_pw: process.env.SISMOS_PW || 'uBBWFcx44z#9TC%KVECvswmguuq9%3',
@@ -16,3 +16,5 @@ module.exports = {
     db_password: process.env.DB_PASSWORD || 'admin1234',
     db_host: process.env.DB_HOST || 'localhost'
 };
+
+export default config; 

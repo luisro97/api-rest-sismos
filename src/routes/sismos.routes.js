@@ -1,8 +1,9 @@
-const { Router } = require('express');
+import {Router} from 'express';
+import verifyToken from '../libs/verifyToken.js';
+import verifyTokenSismo from '../libs/verifyTokenSismo.js'
+import { getSismo, getSismos, createSismo } from '../controllers/sismos.controller.js';
+
 const router = Router();
-const verifyToken = require('../libs/verifyToken');
-const verifyTokenSismo = require('../libs/verifyTokenSismo');
-import { getSismo, getSismos, createSismo } from '../controllers/sismos.controller';
 
 //defincion de esquema earthquakes que contiene los datos de un sismo en swagger
 /**
@@ -113,4 +114,4 @@ router.get('/', verifyToken, getSismos);                    //ruta del metodo ge
  */
 router.get('/:id_registro', verifyToken, getSismo);         //ruta del metodo get para la obtencion de un sismo con la verificacion a traves del token
 
-module.exports = router;
+export default router;

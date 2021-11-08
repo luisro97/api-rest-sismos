@@ -1,6 +1,6 @@
-import Users from '../models/users';
+import Users from '../models/users.js';
 import jwt from 'jsonwebtoken';
-import config from '../config';
+import config from '../config.js';
 import bcrypt from 'bcryptjs';
 
 //funcion asincrona para la creacion de un usuario
