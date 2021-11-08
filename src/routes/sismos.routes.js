@@ -44,7 +44,7 @@ const router = Router();
 //creacion del metodo post para la creacion de un sismo en el swagger
 /**
  * @swagger
- * /grupo-x/earthquakes:
+ * /earthquakes:
  *  post:
  *   security:
  *     - bearerAuth: []
@@ -69,7 +69,7 @@ router.post('/', verifyTokenSismo, createSismo);                    //ruta del m
 //creacion del metodo get para obtener todos los sismos registrados 
 /**
  * @swagger
- * /grupo-x/earthquakes:
+ * /earthquakes:
  *  get:
  *    security:
  *      - bearerAuth: []
@@ -89,7 +89,7 @@ router.get('/', verifyToken, getSismos);                    //ruta del metodo ge
 //creacion del metodo get para la ver los datos de un sismo a traves de la id en swagger
 /**
  * @swagger
- * /grupo-x/earthquakes/{id_register}:
+ * /earthquakes/{id_register}:
  *  get:
  *   security:
  *     - bearerAuth: []

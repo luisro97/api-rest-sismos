@@ -31,7 +31,7 @@ const router = Router();
 
 /**
  * @swagger
- * /grupo-x/users:
+ * /users:
  *  post:
  *   summary: Crear usuario
  *   tags: [users]
@@ -57,7 +57,7 @@ router.post('/', createUser);           //ruta para la creacion de un usario a t
 
 /**
  * @swagger
- * /grupo-x/users:
+ * /users:
  *  get:
  *    summary: Ver usuarios
  *    security:
@@ -78,7 +78,7 @@ router.get('/', verifyToken, getUsers);         //ruta del metodo get para obten
 
 /**
  * @swagger
- * /grupo-x/users/profile:
+ * /users/profile:
  *  get:
  *    summary: Muestra el perfil del usuario
  *    security:

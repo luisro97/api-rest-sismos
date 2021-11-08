@@ -24,7 +24,7 @@ const router = Router();
 //creacion del metodo post para el inicio de sesion  en el swagger
 /**
  * @swagger
- * /grupo-x/auth/signin:
+ * /auth/signin:
  *  post:
  *   summary: Inicio de sesion
  *   tags: [auth]

@@ -42,7 +42,7 @@ const swaggerOptions = {                                            //configurac
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/grupo-x/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));            //ruta de acceso al swagger
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));            //ruta de acceso al swagger
 
 app.use(morgan('dev'));                                     //definicion para el uso de morgan
 app.use(json());
@@ -100,7 +100,7 @@ export async function createPosts(data) {
             });
             let options = {                                             //configuracion para la creacion de sismos mediante llamado a la misma api 
                 method: 'POST',
-                uri: 'http://localhost:4000/grupo-x/earthquakes',
+                uri: 'http://localhost:4000/earthquakes',
                 headers: {
                     "Content-type": "application/json",
                 },
@@ -170,8 +170,8 @@ export function toLocalTz(obj) {
 }
 
 
-app.use('/grupo-x/auth', authRoutes);
-app.use('/grupo-x/earthquakes', sismosRoutes);
-app.use('/grupo-x/users', usersRoutes);
+app.use('/auth', authRoutes);
+app.use('/earthquakes', sismosRoutes);
+app.use('/users', usersRoutes);
 
 export default app;
